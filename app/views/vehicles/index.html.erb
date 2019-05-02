@@ -1,0 +1,31 @@
+<h1>List all vehicles</h1>
+  <p>
+    <button class="w3-button w3-round-large w3-green"><%= link_to 'Create new vehicle', new_vehicle_path %></button>
+  </p>
+  <table class="w3-table-all w3-hoverable">
+    <tr>
+      <th>Make</th>
+      <th>Model</th>
+      <th>Year</th>
+      <th>MPG</th>
+      <th>Edit</th>
+      <th>Show</th>
+      <th>Delete</th>
+    </tr>
+    <% @vehicles.each do |vehicle|  %>
+      <tr>
+        <td><%= vehicle.make %></td>
+        <td><%= vehicle.model %></td>
+        <td><%= vehicle.yr %></td>
+        <% if vehicle.mpg %>
+          <td><%= vehicle.mpg %></td>
+        <% else %>
+          <td><button class="w3-button w3-round-large w3-black"><%= link_to "Fetch MPG", fetch_mpg_vehicle_path(vehicle)%></button></td>
+        <% end%>
+        <td><button class="w3-button w3-round-large w3-black"><%= link_to "Edit", edit_vehicle_path(vehicle) %></button></td>
+        <td><button class="w3-button w3-round-large w3-black"><%= link_to "Show", vehicle_path(vehicle) %></button></td>
+        <td><button class="w3-button w3-round-large w3-red"><%= link_to "Delete", vehicle_path(vehicle), method: :delete, data: {confirm: "Are you sure?"} %></button></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Traveler</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name='turbolinks-visit-control' content='reload'>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    
+    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?sensor=true", "application", "data-turbolinks-track": "reload" %>
+    
+
+    <%= yield(:head_tags) %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body class="w3-light-grey w3-content" style="max-width:1600px">
+    <%= render 'layouts/messages' %>
+    <%= render 'layouts/sidebar' %>
+    <!-- !PAGE CONTENT! -->
+    <div class="w3-main" style="margin-left:300px">
+      <%= yield() %>
+      
+    </div>
+  </body>
+</html>

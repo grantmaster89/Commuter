@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  make: MyString
+  model: MyString
+  year: 2019-04-05
+  mpg: 9.99
+
+two:
+  make: MyString
+  model: MyString
+  year: 2019-04-05
+  mpg: 9.99
