@@ -1,5 +1,5 @@
 
-<%= form_with(model: trip, local: true) do |form| %>
+<%= form_with(model: @trip, local: true) do |form| %>
   <% if trip.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(trip.errors.count, "error") %> prohibited this trip from being saved:</h2>
@@ -14,14 +14,13 @@
 
   <div class="field">
     <%= form.label :start %>
-    <%= form.text_field :start_latitude %>
+    <%= form.text_field :from  %>
   </div>
 
   <div class="field">
     <%= form.label :destination %>
-    <%= form.text_field :start_longitude %>
+    <%= form.text_field :to %>
   </div>
-
 
 
   <div class="actions">

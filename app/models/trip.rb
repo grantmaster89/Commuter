@@ -1,14 +1,11 @@
 class Trip < ApplicationRecord
-    has_many :visits, dependent: :destroy
+    has_one :start_place, class_name: 'Place'
+    has_one :end_place, class_name: 'Place'
 
-    def add_place(place)
-        current_stop = visit.find_by(place_id: place.id)
-        if current_stop
-            current_stop.increment(:quantity)
-        else
-            current_stop = visit.build(place_id: place.id)
-        end
-        current_stop
+    def create(from, to)
+        start_place = Place.find_by(name: from)
+        end_place = Place.find_by(name: to)
+        @trip = Trip.new(start_place: start_place, end_place: end_place)
     end
 
     def distance
