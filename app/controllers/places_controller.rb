@@ -8,6 +8,10 @@ class PlacesController < ApplicationController
     @place = Place.new
   end
 
+  def show
+    @place = Place.find(params[:id])
+  end
+
   def create
     @place = Place.new(place_params)
     render json: @place.as_json(only: [:name, :street, :city, :state, :zip]) if @place.save

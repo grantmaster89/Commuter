@@ -28,7 +28,7 @@ class VisitsController < ApplicationController
   # POST /visits.json
   def create
     place = Place.find(params[:place_id])
-    @visit = @trip.add_visit(visit_params)
+    @visit = @trip.add_place(place)
 
     respond_to do |format|
       if @visit.save
@@ -58,9 +58,10 @@ class VisitsController < ApplicationController
   # DELETE /visits/1
   # DELETE /visits/1.json
   def destroy
+    @trip = Trip.find(session[:trip_id])
     @visit.destroy
     respond_to do |format|
-      format.html { redirect_to visits_url, notice: 'Visit was successfully destroyed.' }
+      format.html { redirect_to trip_path(@trip), notice: 'Visit was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -73,6 +74,6 @@ class VisitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def visit_params
-      params.require(:visit).permit(:place_id, :trip_id)
+      params.require(:visit).permit(:place_id)
     end
 end
