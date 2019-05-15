@@ -8,3 +8,5 @@ extend SeedData
 #     ])
 
 # Place.create!([{ "name": "Courtyard by Marriot Los Angeles Westside", "street": "6333 Bristol Pkwy", "city": "Culver City", "state": "CA", "zip": "90230" }])
+
+Place.create!([{ "name": "Home", "street": "11655 Iowa Ave", "city": "Los Angeles", "state": "CA", "zip": "90025" }])

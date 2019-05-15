@@ -163,6 +163,7 @@ GEM
       ffi (~> 1.0)
     rb-readline (0.5.5)
     redis (4.1.0)
+    ripper-tags (0.7.0)
     rspec-core (3.8.0)
       rspec-support (~> 3.8.0)
     rspec-expectations (3.8.3)
@@ -261,6 +262,7 @@ DEPENDENCIES
   rails (~> 5.2.3)
   rb-readline
   redis (~> 4.0)
+  ripper-tags
   rspec-rails
   sass-rails (~> 5.0)
   sassc-rails (>= 2.1.0)
