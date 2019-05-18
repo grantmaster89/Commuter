@@ -39,11 +39,14 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'dotenv-rails'
 gem 'faraday'
 gem 'sidekiq'
-gem 'bootstrap-sass', '~> 3.4.1'
+gem 'bootstrap', '~> 4.3.1'
 gem 'sassc-rails', '>= 2.1.0'
 gem 'jquery-rails'
 gem "geocoder"
 gem 'webpacker', github: 'rails/webpacker'
+gem 'devise'
+gem 'omniauth-facebook'
+
 
 
 group :development, :test do

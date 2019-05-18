@@ -1,5 +1,5 @@
 <h1>Showing selected Vehicle</h1>
-<div class="w3-container">
+<div class="container">
   <p>
     Make: <%= @vehicle.make %>
   </p>
@@ -9,7 +9,7 @@
   <p>
     Year: <%= @vehicle.yr %>
   </p>
-  <p><button class="w3-button w3-black">Fetch MPG</button> </p>
-  <button class="w3-button w3-round-large w3-green"><%= link_to "Edit this vehicle", edit_vehicle_path(@vehicle) %></button>
-  <button class="w3-button w3-round-large w3-green"><%= link_to "Back to vehicles listing", vehicles_path %></button>
+  <p><button class="btn btn-black">Fetch MPG</button> </p>
+  <button class="btn brn-success"><%= link_to "Edit this vehicle", edit_vehicle_path(@vehicle) %></button>
+  <button class="btn brn-success"><%= link_to "Back to vehicles listing", vehicles_path %></button>
 </div>

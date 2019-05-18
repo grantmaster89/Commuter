@@ -1,0 +1,287 @@
+
+app/mailers/application_mailer.rb,67
+class ApplicationMailer < ActionMailer::BaseApplicationMailer1,0
+
+app/models/vehicle.rb,46
+class Vehicle < ApplicationRecordVehicle1,0
+
+app/models/role.rb,424
+class Role < ApplicationRecordRole1,0
+    has_many :user_rolesuser_roles2,0
+    has_many :user_rolesuser_roles=2,0
+    has_many :user_rolesuser_role_ids2,0
+    has_many :user_rolesuser_role_ids=2,0
+    has_many :users, through: :user_rolesusers3,0
+    has_many :users, through: :user_rolesusers=3,0
+    has_many :users, through: :user_rolesuser_ids3,0
+    has_many :users, through: :user_rolesuser_ids=3,0
+
+app/models/trip.rb,826
+class Trip < ApplicationRecordTrip1,0
+  belongs_to :useruser2,0
+  belongs_to :useruser=2,0
+  belongs_to :userbuild_user2,0
+  belongs_to :usercreate_user2,0
+  belongs_to :usercreate_user!2,0
+  belongs_to :origin, class_name: "Place"origin3,0
+  belongs_to :origin, class_name: "Place"origin=3,0
+  belongs_to :origin, class_name: "Place"build_origin3,0
+  belongs_to :origin, class_name: "Place"create_origin3,0
+  belongs_to :origin, class_name: "Place"create_origin!3,0
+  belongs_to :destination, class_name: "Place"destination4,0
+  belongs_to :destination, class_name: "Place"destination=4,0
+  belongs_to :destination, class_name: "Place"build_destination4,0
+  belongs_to :destination, class_name: "Place"create_destination4,0
+  belongs_to :destination, class_name: "Place"create_destination!4,0
+
+app/models/application_record.rb,67
+class ApplicationRecord < ActiveRecord::BaseApplicationRecord1,0
+
+app/models/concerns/current_trip.rb,65
+module CurrentTripCurrentTrip1,0
+    def set_tripset_trip5,0
+
+app/models/user.rb,580
+class User < ApplicationRecordUser1,0
+    has_many :user_rolesuser_roles2,0
+    has_many :user_rolesuser_roles=2,0
+    has_many :user_rolesuser_role_ids2,0
+    has_many :user_rolesuser_role_ids=2,0
+    has_many :roles, through: :user_rolesroles3,0
+    has_many :roles, through: :user_rolesroles=3,0
+    has_many :roles, through: :user_rolesrole_ids3,0
+    has_many :roles, through: :user_rolesrole_ids=3,0
+    has_many :tripstrips4,0
+    has_many :tripstrips=4,0
+    has_many :tripstrip_ids4,0
+    has_many :tripstrip_ids=4,0
+    def as_a(role)as_a6,0
+
+app/models/user_role.rb,372
+class UserRole < ApplicationRecordUserRole1,0
+  belongs_to :useruser2,0
+  belongs_to :useruser=2,0
+  belongs_to :userbuild_user2,0
+  belongs_to :usercreate_user2,0
+  belongs_to :usercreate_user!2,0
+  belongs_to :rolerole3,0
+  belongs_to :rolerole=3,0
+  belongs_to :rolebuild_role3,0
+  belongs_to :rolecreate_role3,0
+  belongs_to :rolecreate_role!3,0
+
+app/models/place.rb,534
+class Place < ApplicationRecordPlace1,0
+    has_many :trips_origin, class_name: "Trip", foreign_key: "origin_id"trips_origin4,0
+    has_many :trips_origin, class_name: "Trip", foreign_key: "origin_id"trips_origin=4,0
+    has_many :trips_destination, class_name: "Trip", foreign_key: "destination_id"trips_destination5,0
+    has_many :trips_destination, class_name: "Trip", foreign_key: "destination_id"trips_destination=5,0
+    def addressaddress7,0
+    def address_changed?address_changed?11,0
+    def tripstrips15,0
+
+app/workers/vehicle_mpg_worker.rb,78
+class VehicleMpgWorkerVehicleMpgWorker1,0
+  def perform(params)perform4,0
+
+app/jobs/application_job.rb,58
+class ApplicationJob < ActiveJob::BaseApplicationJob1,0
+
+app/controllers/application_controller.rb,79
+class ApplicationController < ActionController::BaseApplicationController1,0
+
+app/controllers/trips_controller.rb,294
+class TripsController < ApplicationControllerTripsController1,0
+  def indexindex6,0
+  def showshow12,0
+  def newnew16,0
+  def editedit21,0
+  def createcreate26,0
+  def updateupdate42,0
+  def destroydestroy56,0
+    def set_tripset_trip66,0
+    def trip_paramstrip_params71,0
+
+app/controllers/pages_controller.rb,112
+class PagesController < ApplicationControllerPagesController1,0
+    def homehome3,0
+    def aboutabout6,0
+
+app/controllers/places_controller.rb,193
+class PlacesController < ApplicationControllerPlacesController1,0
+  def indexindex3,0
+  def newnew7,0
+  def showshow11,0
+  def createcreate15,0
+    def place_paramsplace_params23,0
+
+app/controllers/users_controller.rb,294
+class UsersController < ApplicationControllerUsersController1,0
+  def indexindex6,0
+  def showshow12,0
+  def newnew16,0
+  def editedit21,0
+  def createcreate26,0
+  def updateupdate42,0
+  def destroydestroy56,0
+    def set_userset_user66,0
+    def user_paramsuser_params71,0
+
+app/controllers/vehicles_controller.rb,303
+class VehiclesController < ApplicationControllerVehiclesController1,0
+  def indexindex2,0
+  def newnew6,0
+  def editedit10,0
+  def createcreate14,0
+  def destroydestroy24,0
+  def updateupdate31,0
+  def fetch_mpgfetch_mpg41,0
+  def showshow48,0
+  def vehicle_paramsvehicle_params54,0
+
+app/helpers/trips_helper.rb,35
+module TripsHelperTripsHelper1,0
+
+app/helpers/welcome_helper.rb,39
+module WelcomeHelperWelcomeHelper1,0
+
+app/helpers/trip_helper.rb,33
+module TripHelperTripHelper1,0
+
+app/helpers/places_helper.rb,37
+module PlacesHelperPlacesHelper1,0
+
+app/helpers/users_helper.rb,35
+module UsersHelperUsersHelper1,0
+
+app/helpers/vehicle_helper.rb,80
+module VehicleHelperVehicleHelper1,0
+    def fetch_mpg(vehicle)fetch_mpg2,0
+
+app/helpers/application_helper.rb,47
+module ApplicationHelperApplicationHelper1,0
+
+app/channels/application_cable/connection.rb,195
+module ApplicationCableApplicationCable1,0
+  class Connection < ActionCable::Connection::BaseConnection2,0
+  class Connection < ActionCable::Connection::BaseApplicationCable::Connection2,0
+
+app/channels/application_cable/channel.rb,177
+module ApplicationCableApplicationCable1,0
+  class Channel < ActionCable::Channel::BaseChannel2,0
+  class Channel < ActionCable::Channel::BaseApplicationCable::Channel2,0
+
+test/models/trip_test.rb,54
+class TripTest < ActiveSupport::TestCaseTripTest3,0
+
+test/models/place_test.rb,56
+class PlaceTest < ActiveSupport::TestCasePlaceTest3,0
+
+test/models/vehicle_test.rb,60
+class VehicleTest < ActiveSupport::TestCaseVehicleTest3,0
+
+test/models/user_role_test.rb,62
+class UserRoleTest < ActiveSupport::TestCaseUserRoleTest3,0
+
+test/models/user_test.rb,54
+class UserTest < ActiveSupport::TestCaseUserTest3,0
+
+test/models/role_test.rb,54
+class RoleTest < ActiveSupport::TestCaseRoleTest3,0
+
+test/system/trips_test.rb,58
+class TripsTest < ApplicationSystemTestCaseTripsTest3,0
+
+test/system/places_test.rb,60
+class PlacesTest < ApplicationSystemTestCasePlacesTest3,0
+
+test/system/users_test.rb,58
+class UsersTest < ApplicationSystemTestCaseUsersTest3,0
+
+test/system/visits_test.rb,60
+class VisitsTest < ApplicationSystemTestCaseVisitsTest3,0
+
+test/application_system_test_case.rb,95
+class ApplicationSystemTestCase < ActionDispatch::SystemTestCaseApplicationSystemTestCase3,0
+
+test/workers/vehicle_mpg_worker_worker_test.rb,127
+class VehicleMpgWorkerWorkerTest < MiniTest::Unit::TestCaseVehicleMpgWorkerWorkerTest2,0
+  def test_exampletest_example3,0
+
+test/test_helper.rb,101
+class ActiveSupport::TestCaseTestCase5,0
+class ActiveSupport::TestCaseActiveSupport::TestCase5,0
+
+test/controllers/users_controller_test.rb,84
+class UsersControllerTest < ActionDispatch::IntegrationTestUsersControllerTest3,0
+
+test/controllers/trip_controller_test.rb,82
+class TripControllerTest < ActionDispatch::IntegrationTestTripControllerTest3,0
+
+test/controllers/trips_controller_test.rb,84
+class TripsControllerTest < ActionDispatch::IntegrationTestTripsControllerTest3,0
+
+test/controllers/vehicle_controller_test.rb,88
+class VehicleControllerTest < ActionDispatch::IntegrationTestVehicleControllerTest3,0
+
+test/controllers/places_controller_test.rb,86
+class PlacesControllerTest < ActionDispatch::IntegrationTestPlacesControllerTest3,0
+
+test/controllers/welcome_controller_test.rb,88
+class WelcomeControllerTest < ActionDispatch::IntegrationTestWelcomeControllerTest3,0
+
+config/application.rb,155
+module TravelerTraveler9,0
+  class Application < Rails::ApplicationApplication10,0
+  class Application < Rails::ApplicationTraveler::Application10,0
+
+spec/seed_data_helper.rb,72
+module SeedDataSeedData1,0
+    def self.extended(object)extended2,0
+
+db/migrate/20190406040357_create_vehicles.rb,95
+class CreateVehicles < ActiveRecord::Migration[5.2]CreateVehicles1,0
+  def changechange2,0
+
+db/migrate/20190512180847_create_user_roles.rb,97
+class CreateUserRoles < ActiveRecord::Migration[5.2]CreateUserRoles1,0
+  def changechange2,0
+
+db/migrate/20190414043155_create_places.rb,91
+class CreatePlaces < ActiveRecord::Migration[5.2]CreatePlaces1,0
+  def changechange2,0
+
+db/migrate/20190424205120_add_columns_to_places.rb,103
+class AddColumnsToPlaces < ActiveRecord::Migration[5.2]AddColumnsToPlaces1,0
+  def changechange2,0
+
+db/migrate/20190512180656_create_users.rb,89
+class CreateUsers < ActiveRecord::Migration[5.2]CreateUsers1,0
+  def changechange2,0
+
+db/migrate/20190512180746_create_roles.rb,89
+class CreateRoles < ActiveRecord::Migration[5.2]CreateRoles1,0
+  def changechange2,0
+
+db/migrate/20190513192626_create_trips.rb,89
+class CreateTrips < ActiveRecord::Migration[5.2]CreateTrips1,0
+  def changechange2,0
+
+travel_script.rb,948
+class CarCar1,0
+    attr_accessor :id, :make, :model, :year, :mpg id2,0
+    attr_accessor :id, :make, :model, :year, :mpg id=2,0
+    attr_accessor :id, :make, :model, :year, :mpg make2,0
+    attr_accessor :id, :make, :model, :year, :mpg make=2,0
+    attr_accessor :id, :make, :model, :year, :mpg model2,0
+    attr_accessor :id, :make, :model, :year, :mpg model=2,0
+    attr_accessor :id, :make, :model, :year, :mpg year2,0
+    attr_accessor :id, :make, :model, :year, :mpg year=2,0
+    attr_accessor :id, :make, :model, :year, :mpg mpg2,0
+    attr_accessor :id, :make, :model, :year, :mpg mpg=2,0
+    def findfind3,0
+def distance(start_point, end_point)distance11,0
+def fetch_mpg(car)fetch_mpg17,0
+def gallons_per_trip(distance, mpg)gallons_per_trip24,0
+def fetch_avg_cost_gallons(area='Los Angeles', type='unleaded')fetch_avg_cost_gallons30,0
+def cost_of_trip(gallons=2.22, avg_cost_gallons=3.01)cost_of_trip39,0

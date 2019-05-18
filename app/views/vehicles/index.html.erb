@@ -1,8 +1,8 @@
 <h1>List all vehicles</h1>
   <p>
-    <button class="w3-button w3-round-large w3-green"><%= link_to 'Create new vehicle', new_vehicle_path %></button>
+    <button class="btn btn-primary"><%= link_to 'Create new vehicle', new_vehicle_path %></button>
   </p>
-  <table class="w3-table-all w3-hoverable">
+  <table class="table">
     <tr>
       <th>Make</th>
       <th>Model</th>
@@ -20,11 +20,11 @@
         <% if vehicle.mpg %>
           <td><%= vehicle.mpg %></td>
         <% else %>
-          <td><button class="w3-button w3-round-large w3-black"><%= link_to "Fetch MPG", fetch_mpg_vehicle_path(vehicle)%></button></td>
+          <td><button class="btn btn-dark"><%= link_to "Fetch MPG", fetch_mpg_vehicle_path(vehicle)%></button></td>
         <% end%>
-        <td><button class="w3-button w3-round-large w3-black"><%= link_to "Edit", edit_vehicle_path(vehicle) %></button></td>
-        <td><button class="w3-button w3-round-large w3-black"><%= link_to "Show", vehicle_path(vehicle) %></button></td>
-        <td><button class="w3-button w3-round-large w3-red"><%= link_to "Delete", vehicle_path(vehicle), method: :delete, data: {confirm: "Are you sure?"} %></button></td>
+        <td><button class="btn btn-dark"><%= link_to "Edit", edit_vehicle_path(vehicle) %></button></td>
+        <td><button class="btn btn-dark"><%= link_to "Show", vehicle_path(vehicle) %></button></td>
+        <td><button class="btn btn-warning"><%= link_to "Delete", vehicle_path(vehicle), method: :delete, data: {confirm: "Are you sure?"} %></button></td>
       </tr>
     <% end %>
   </table>
