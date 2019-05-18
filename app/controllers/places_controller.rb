@@ -5,7 +5,7 @@ class PlacesController < ApplicationController
   end
 
   def new
-    @place = Place.new
+    @place = Place.new  
   end
 
   def show
@@ -13,6 +13,9 @@ class PlacesController < ApplicationController
   end
 
   def create
+    # TODO: if called from trips
+    # 1) populate name field
+    # 2) redirect back to trip create
     @place = Place.new(place_params)
     render json: @place.as_json(only: [:name, :street, :city, :state, :zip]) if @place.save
   end

@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class TripsController < ApplicationController
-  before_action :set_trip, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /trips
   # GET /trips.json
@@ -9,8 +11,7 @@ class TripsController < ApplicationController
 
   # GET /trips/1
   # GET /trips/1.json
-  def show
-  end
+  def show; end
 
   # GET /trips/new
   def new
@@ -18,17 +19,19 @@ class TripsController < ApplicationController
   end
 
   # GET /trips/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /trips
   # POST /trips.json
   def create
-    @trip = Trip.new(trip_params)
+    origin = Place.find_by(name: trip_params[:origin])
+    redirect_to('/places/new') && return unless origin
+    destination = Place.find_by(name: trip_params[:destination])
+    @trip = Trip.new(origin: origin, destination: destination, user: current_user)
 
     respond_to do |format|
       if @trip.save
-        format.html { redirect_to @trip, notice: 'Trip was successfully created.' }
+        format.html { render :show, notice: 'Trip was successfully created.' }
         format.json { render :show, status: :created, location: @trip }
       else
         format.html { render :new }
@@ -62,13 +65,14 @@ class TripsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_trip
-      @trip = Trip.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def trip_params
-      params.fetch(:trip, {})
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_trip
+    @trip = Trip.find(params[:id]) if params[:id]
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def trip_params
+    params.fetch(:trip, {}).permit(:origin, :destination)
+  end
 end
