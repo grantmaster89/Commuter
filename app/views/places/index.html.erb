@@ -27,6 +27,7 @@
 </div>
 <div class="col">
   <%= tag.div nil, id: "map", data: {places: @places.to_json(methods: [:address]) } %>
+  
 </div>
 <br>
 <button class="btn btn-success"><%= link_to 'New Place', new_place_path %></button>

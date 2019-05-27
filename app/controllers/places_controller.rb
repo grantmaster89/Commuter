@@ -22,7 +22,7 @@ class PlacesController < ApplicationController
     # 1) populate name field
     # 2) redirect back to trip create or back
     @place = Place.new(place_params)
-    render json: @place.as_json(only: %i[name street city state zip]) if @place.save
+    redirect_to new_trip_path(@trip, trip: { place_id: @place.id }) if @place.save
   end
 
   # DELETE /place/1

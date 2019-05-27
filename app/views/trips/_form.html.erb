@@ -12,11 +12,11 @@
   <% end %>
   <div class="field">
       <%= form.label :origin %>
-      <%= form.text_field :origin %>
+      <%= form.collection_select :origin_id, @places, :id, :name, selected: @place_id %>
     </div>
     <div class="field">
       <%= form.label :destination %>
-      <%= form.text_field :destination %>
+      <%= form.collection_select :destination_id, @places, :id, :name, selected: @place_id %>
     </div>
   <div class="actions">
     <%= form.submit %>
