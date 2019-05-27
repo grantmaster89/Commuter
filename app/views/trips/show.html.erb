@@ -1,10 +1,10 @@
 <p id="notice"><%= notice %></p>
-<%=@trip.origin.name%>
-<%=@trip.destination.name%>
-<%=@trip.distance%>
+<div>Origin: <%=@trip.origin.name%></div>
+<div> Destination: <%=@trip.destination.name%></div>
+<div>Distance: <%=@trip.distance%></div>
 
 <div class="col">
-  <%= tag.div nil, id: "map2", data: {places: [@trip.origin, @trip.destination].to_json, origin: @trip.origin.to_json(methods: [:address]), destination: @trip.destination.to_json(methods: [:address]) } %>
+  <%= tag.div nil, id: "map2", data: {places: [@trip.origin, @trip.destination].to_json(methods: [:address]), origin: @trip.origin.to_json(methods: [:address]), destination: @trip.destination.to_json(methods: [:address]) } %>
 </div>
 <%= link_to 'Edit', edit_trip_path(@trip) %> |
 <%= link_to 'Back', trips_path %>

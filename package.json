@@ -13,5 +13,9 @@
   "devDependencies": {
     "webpack-cli": "^3.3.2",
     "webpack-dev-server": "^3.4.1"
+  },
+  "scripts": {
+    "start:dev": "./bin/webpack-dev-server"
   }
+  
 }

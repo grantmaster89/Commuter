@@ -32,8 +32,7 @@ document.addEventListener("turbolinks:load", function() {
     div: "#map2",
     lat: 34.052235,
     lng: -118.2437,
-    zoom: 11,
-    zoomControl: true
+    zoom: 8
   });
   window.map2 = map2;
 
@@ -48,11 +47,9 @@ document.addEventListener("turbolinks:load", function() {
   var destination = JSON.parse(document.querySelector("#map2").dataset.destination);
   window.destination = destination;
 
-  console.log(origin, destination)
-
   GMaps.geolocate({
-    success: function(position){
-      map2.setCenter(origin.latitude, origin.longitude);
+    success: function(){
+      // map2.setCenter(origin.latitude, origin.longitude);
        map2.drawRoute({
         origin: [origin.latitude, origin.longitude],
         destination: [destination.latitude, destination.longitude],
