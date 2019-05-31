@@ -10,12 +10,19 @@ class TripsController < ApplicationController
   end
 
   # GET /trips/1
-  # GET /trips/1.json
-  def show; end
+  # GET /trips/1.jsonk
+  def show
+    @trip = Trip.find(params[:id])
+  end
 
   # GET /trips/new
   def new
+    pp trip_params
     @trip = Trip.new
+    @places = Place.all.to_a
+    @place_id = trip_params[:place_id] || ''
+    dummy_place = Place.new(name: 'New Place', id: '')
+    @places.unshift(dummy_place)
   end
 
   # GET /trips/1/edit
@@ -24,10 +31,21 @@ class TripsController < ApplicationController
   # POST /trips
   # POST /trips.json
   def create
-    origin = Place.find_by(name: trip_params[:origin])
-    redirect_to('/places/new') && return unless origin
-    destination = Place.find_by(name: trip_params[:destination])
-    @trip = Trip.new(origin: origin, destination: destination, user: current_user)
+    if trip_params[:origin_id].present?
+      @origin = Place.find(trip_params[:origin_id])
+
+    else
+      redirect_to('/places/new') && return
+      @origin = Place.find(trips_params[:place_id])
+
+    end
+    if trip_params[:destination_id].present?
+      @destination = Place.find(trip_params[:destination_id])
+    else
+      redirect_to('/places/new') && return
+      @destination = Place.find(trips_params[:place_id])
+    end
+    @trip = Trip.new(origin: @origin, destination: @destination, user: current_user)
 
     respond_to do |format|
       if @trip.save
@@ -73,6 +91,6 @@ class TripsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def trip_params
-    params.fetch(:trip, {}).permit(:origin, :destination)
+    params.fetch(:trip, {}).permit(:origin_id, :destination_id, :place_id)
   end
 end

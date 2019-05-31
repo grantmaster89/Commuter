@@ -8,10 +8,14 @@
     "jquery": "^3.4.1",
     "jquery-ujs": "^1.2.2",
     "popper.js": "^1.15.0",
-    "webpack": "^4.30.0"
+    "webpack": "^4.31.0"
   },
   "devDependencies": {
-    "webpack-cli": "^3.3.1",
-    "webpack-dev-server": "^3.3.1"
+    "webpack-cli": "^3.3.2",
+    "webpack-dev-server": "^3.4.1"
+  },
+  "scripts": {
+    "start:dev": "./bin/webpack-dev-server"
   }
+  
 }
