@@ -11,14 +11,16 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['google_maps_api_key']}", "application", "data-turbolinks-track": "reload" %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    
     <%= yield(:head_tags) %>
   </head>
   <body>
-    <%= render partial: 'layouts/sidebar' %>
-    <div class='container'>
-      <%= render partial: 'layouts/messages' %>
-      <%= yield() %>
+    <%= render 'messages' %>
+    <div class='page_content'>
+      <%= render 'navbar' %>
+      <section>
+        <%= render 'sidebar' %>
+        <%= yield() %>
+      </section>
     </div>
   </body>
 </html>

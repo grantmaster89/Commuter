@@ -1,0 +1,5 @@
+<h1>Search Panal</h1>
+<%= form_with model: @place do |form| %>
+  <%= form.text_field :address %>
+  <%= form.submit("Search") %>
+<% end %>

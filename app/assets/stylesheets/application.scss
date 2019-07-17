@@ -13,9 +13,22 @@
  *= require_tree .
  *= require_self
  */
-#map {
-  height: 400px
+
+.page_content {
+  position: relative;
 }
-#map2 {
-  height: 400px
+section {
+  margin-left: 25%;
+  height: 100%;
+}
+.sidebar {
+  float: left;
+  background-color: grey;
+  position: absolute;
+  left: 0px;
+  width: 25%;
+  height: 100%;
+}
+body {
+  margin-bottom: 120px;
 }

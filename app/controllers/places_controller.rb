@@ -1,17 +1,9 @@
-# frozen_string_literal: true
-
 class PlacesController < ApplicationController
-  def index
-    @places = Place.paginate(page: params[:page], per_page: 10)
-    respond_to do |format|
-      format.html
-      format.json { render json: @places }
-    end
-  end
-
+  
   def new
     @place = Place.new
   end
+
 
   def show
     @place = Place.find(params[:id])
@@ -22,24 +14,13 @@ class PlacesController < ApplicationController
     # 1) populate name field
     # 2) redirect back to trip create or back
     @place = Place.new(place_params)
-    redirect_to new_trip_path(@trip, trip: { place_id: @place.id }) if @place.save
-  end
-
-  # DELETE /place/1
-  # DELETE /places/1.json
-  def destroy
-    @place = Place.find(params[:id])
-    @place.destroy if @place.present?
-    respond_to do |format|
-      format.html { redirect_to places_url, notice: 'Place was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to maps_path if @place.save
   end
 
   private
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def place_params
-    params.require(:place).permit(:name, :street, :city, :state, :zip)
+    params.require(:place).permit(:name, :street, :city, :state, :zip, :address)
   end
 end
